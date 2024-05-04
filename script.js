@@ -1,15 +1,11 @@
 //your JS code here. If required.
 function mapLetters(word) {
-    const letterMap = {};
-
-    for (let i = 0; i < word.length; i++) {
-        const letter = word[i];
-        if (!letterMap.hasOwnProperty(letter)) {
-            letterMap[letter] = [i];
+    return word.split('').reduce((letterMap, letter, index) => {
+        if (letterMap[letter] === undefined) {
+            letterMap[letter] = [index];
         } else {
-            letterMap[letter].push(i);
+            letterMap[letter].push(index);
         }
-    }
-
-    return letterMap;
+        return letterMap;
+    }, {});
 }
